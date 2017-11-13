@@ -27,7 +27,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'react-select/dist/react-select.css';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-const history = syncHistoryWithStore(browserHistory, store);
+// const history = syncHistoryWithStore(browserHistory, store);
 
 
 
@@ -42,15 +42,19 @@ axios.get(`https://jsonplaceholder.typicode.com/users`)
 
 
 ReactDOM.render(
-    // <div>
-    //     Hello Kitty!!!
-    // </div>
-    <Provider store={store}>
-        <Router history={history}>
-            <Route path="/" component={UsersTable}/>
-            <Route path="/addUser" component={AddUser}/>
-            <Route path="/currencyCalculator" component={CurrencyCalculator}/>
-        </Router>
-    </Provider>
+        <Provider store={store} >
+            <div>
+                <UsersTable/>
+                <AddUser/>
+                <CurrencyCalculator/>
+            </div>
+        </Provider>
+    // <Provider store={store}>
+    //     <Router history={history}>
+    //         <Route path="/" component={UsersTable}/>
+    //         <Route path="/addUser" component={AddUser}/>
+    //         <Route path="/currencyCalculator" component={CurrencyCalculator}/>
+    //     </Router>
+    // </Provider>
     , document.getElementById('root'));
 // registerServiceWorker();
