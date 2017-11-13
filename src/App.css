@@ -26,3 +26,18 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+/*.alert{*/
+/*display: none;*/
+/*}*/
+
+.users-Select{
+  width: 120px;
+  /*display: inline-block;*/
+  /*float: left;*/
+
+}
+
+.Users-Table-Pagination{
+  margin: auto;
+  text-align:center;
+}
