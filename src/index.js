@@ -15,15 +15,16 @@ import  {createStore, applyMiddleware} from 'redux';
 import reducer from './reducers/index';
 // import { Router, Route, browserHistory, Switch  } from 'react-router';
 // import { Router, Route, Switch  } from 'react-router';
-import {  Route, Switch  } from 'react-router';
-// import { syncHistoryWithStore } from 'react-router-redux';
+import {   Switch  } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { ConnectedRouter } from 'react-router-redux';
 
 import UsersTable from './containers/UsersTable';
 import AddUser from './containers/AddUser';
 import CurrencyCalculator from './containers/CurrencyCalculator';
 
 import axios from 'axios';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -31,7 +32,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'react-select/dist/react-select.css';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-// const history = syncHistoryWithStore( store);
+// const history = syncHistoryWithStore(store);
 
 
 
@@ -48,7 +49,7 @@ axios.get(`https://jsonplaceholder.typicode.com/users`)
 ReactDOM.render(
     <BrowserRouter>
          <Provider store={store} >
-             <Switch>
+             <Switch >
                  <Route  path="/" exact component={UsersTable}/>
                  <Route  path="/addUser" exact component={AddUser}/>
                  <Route  path="/currencyCalculator" exact component={CurrencyCalculator}/>
