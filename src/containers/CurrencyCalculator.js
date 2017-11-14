@@ -3,7 +3,7 @@ import Menu from '../components/Menu';
 import axios from 'axios';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import '../App.css';
+import '../index.css'
 
 
 

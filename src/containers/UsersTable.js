@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../index.css'
 import  {connect} from 'react-redux';
 import {  Modal,  Button } from 'react-bootstrap';
 import Menu from '../components/Menu';

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Menu from '../components/Menu';
-import '../App.css';
+import '../index.css'
+
 import  {connect} from 'react-redux';
 
 
