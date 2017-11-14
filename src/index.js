@@ -49,10 +49,10 @@ axios.get(`https://jsonplaceholder.typicode.com/users`)
 ReactDOM.render(
     <BrowserRouter>
          <Provider store={store} >
-             <Switch >
+             <Switch>
                  <Route  path="/" exact component={UsersTable}/>
-                 <Route  path="/addUser" exact component={AddUser}/>
-                 <Route  path="/currencyCalculator" exact component={CurrencyCalculator}/>
+                 <Route  path="/addUser"  component={AddUser}/>
+                 <Route  path="/currencyCalculator"  component={CurrencyCalculator}/>
              </Switch>
         </Provider>
     </BrowserRouter>
