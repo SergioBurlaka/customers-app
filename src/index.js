@@ -13,12 +13,17 @@ import  {createStore, applyMiddleware} from 'redux';
 
 
 import reducer from './reducers/index';
-import { Router, Route, browserHistory  } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import UsersTable from './containers/UsersTable';
 import AddUser from './containers/AddUser';
 import CurrencyCalculator from './containers/CurrencyCalculator';
+
+import { HashRouter as Router, Switch } from 'react-router-dom';
+// import { Router, Route, browserHistory  } from 'react-router'; v3
+import { Route  } from 'react-router';
+
+
 
 import axios from 'axios';
 
@@ -27,7 +32,8 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'react-select/dist/react-select.css';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-const history = syncHistoryWithStore(browserHistory, store);
+// const history = syncHistoryWithStore(browserHistory, store);
+// const history = syncHistoryWithStore(store);
 
 axios.get(`https://jsonplaceholder.typicode.com/users`)
     .then(res => {
@@ -41,12 +47,29 @@ axios.get(`https://jsonplaceholder.typicode.com/users`)
 
 ReactDOM.render(
 
+    // <Provider store={store}>
+    //     <Router history={history}>
+    //         <Route  path="/"  component={UsersTable}/>
+    //         <Route  path="/addUser"  component={AddUser}/>
+    //         <Route  path="/currencyCalculator"  component={CurrencyCalculator}/>
+    //     </Router>
+    // </Provider>
+
+        // <Switch history={history}>
+        //     <Route  path="/"  component={UsersTable}/>
+        //     <Route  path="/addUser"  component={AddUser}/>
+        //     <Route  path="/currencyCalculator"  component={CurrencyCalculator}/>
+        // </Switch>
 
     <Provider store={store}>
-        <Router history={history}>
-            <Route  path="/"  component={UsersTable}/>
-            <Route  path="/addUser"  component={AddUser}/>
-            <Route  path="/currencyCalculator"  component={CurrencyCalculator}/>
+        <Router >
+            <div>
+                <Route exact path="/" component={UsersTable}/>
+                <Route path="/addUser" component={AddUser}/>
+                <Route path="/currencyCalculator" component={CurrencyCalculator}/>
+            </div>
         </Router>
     </Provider>
     , document.getElementById('root'));
+
+
