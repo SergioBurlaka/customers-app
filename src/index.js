@@ -19,8 +19,7 @@ import UsersTable from './containers/UsersTable';
 import AddUser from './containers/AddUser';
 import CurrencyCalculator from './containers/CurrencyCalculator';
 
-import { HashRouter as Router, Switch } from 'react-router-dom';
-// import { Router, Route, browserHistory  } from 'react-router'; v3
+import { HashRouter as Router } from 'react-router-dom';
 import { Route  } from 'react-router';
 
 
@@ -32,8 +31,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'react-select/dist/react-select.css';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-// const history = syncHistoryWithStore(browserHistory, store);
-// const history = syncHistoryWithStore(store);
+
 
 axios.get(`https://jsonplaceholder.typicode.com/users`)
     .then(res => {
@@ -46,20 +44,6 @@ axios.get(`https://jsonplaceholder.typicode.com/users`)
 
 
 ReactDOM.render(
-
-    // <Provider store={store}>
-    //     <Router history={history}>
-    //         <Route  path="/"  component={UsersTable}/>
-    //         <Route  path="/addUser"  component={AddUser}/>
-    //         <Route  path="/currencyCalculator"  component={CurrencyCalculator}/>
-    //     </Router>
-    // </Provider>
-
-        // <Switch history={history}>
-        //     <Route  path="/"  component={UsersTable}/>
-        //     <Route  path="/addUser"  component={AddUser}/>
-        //     <Route  path="/currencyCalculator"  component={CurrencyCalculator}/>
-        // </Switch>
 
     <Provider store={store}>
         <Router >
