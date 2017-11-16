@@ -30,7 +30,7 @@ class CurrencyCalculator extends Component {
     }
 
     getExchangeRatesFromServer(currency){
-        axios.get(`http://api.fixer.io/latest?base=`+currency)
+        axios.get(`https://api.fixer.io/latest?base=`+currency)
             .then(res => {
                 this.setState({currencyRates: res.data.rates});
                 this.calculateCurrency();

@@ -13,7 +13,7 @@ import  {createStore, applyMiddleware} from 'redux';
 
 
 import reducer from './reducers/index';
-import { syncHistoryWithStore } from 'react-router-redux';
+// import { syncHistoryWithStore } from 'react-router-redux';
 
 import UsersTable from './containers/UsersTable';
 import AddUser from './containers/AddUser';
